@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<title>Double Pendulum</title>
+<meta charset="utf-8"/>
+<style>
+html, body
+{
+    background-color: rgb(129, 157, 248);
+    width:  100%;
+    height: 705px;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+div
+{
+  position: fixed;
+  left: 5px;
+}
+.title {
+    font-size: 25px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+.sliderRed {
+   accent-color:rgb(255, 0, 0);
+   }
+.sliderGreen {
+   accent-color:rgb(0, 160, 0);
+   }
+.sliderBlue {
+   accent-color:rgb(0, 0, 255);
+   }
+.sunPosition {
+   accent-color:whitesmoke;
+   }
+#controls-div
+{
+	vertical-align: top;
+	background-color: rgb(100, 100, 100);
+	overflow: auto;
+}
+#controls-div button {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 217px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 3px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+}
+#controls-div span[class="color_label"] {
+    margin-left: 4px;
+    font-weight: bold;
+}
+#controls-div range {
+    display: block;
+    margin-bottom: 10px;
+    width: 224px;
+}
+#controls-div input[type="range"] {
+    width: 216px;
+    margin-left: 4px;
+}
+#controls-div input[name="perpetual_button"] {
+    margin-top: 10px;
+}
+#controls-div label[id="perpetual_button"] {
+    font-weight: bold;
+}
+#controls-div input[name="mass1_tail_button"] {
+    margin-top: 10px;
+}
+#controls-div label[id="mass1_tail_button"] {
+    font-weight: bold;
+}
+#diff_eq_solver select {
+    width: 217px;
+    padding: 3px;
+    margin-left: 3px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+}
+#diff_eq_solver_label {
+    margin-left: 4px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#controls-div span[class="sunPosition_label"] {
+    margin-left: 4px;
+    font-weight: bold;
+}
+#controls-div input[id="sun"] {
+    margin-top: 5px;
+}
+
+@media (orientation: landscape) {
+    #controls-div {
+		display: inline-block;
+		width:   14em;
+		height: 100%;
+	}
+}
+@media (orientation: portrait) {
+    #controls-div {
+		width:  100%;
+		height: 14em;
+	}
+}
+</style>
+<canvas id="c2d"></canvas>
+<canvas id="c3d"></canvas>
+
+<div id="controls-div">
+    <br>
+    <span class="title">Controls</span>
+    <button class="pause-resume">Pause</button>
+    <button class="on-off_color">Tails Off</button>
+    <button class="restart">Restart</button>
+    <button class="random_restart">Random Restart</button>
+    <button class="on-off_light">Day</button>
+    <span class="color_label" id="red-label">Red:</span>
+    <span id="red-value"></span>
+    <input type="range" class="sliderRed" id="red" name="red" min="0" max="255">
+    <span class="color_label" id="green-label">Green:</span>
+    <span id="green-value"></span>
+    <input type="range" class="sliderGreen" id="green" name="green" min="0" max="255">
+    <span class="color_label" id="blue-label">Blue:</span>
+    <span id="blue-value"></span>
+    <input type="range" class="sliderBlue" id="blue" name="blue" min="0" max="255">
+    <input type="checkbox" name="perpetual_button" class="perpetual_button" id="perpetual_button" name="perpetual_button">
+    <label id="perpetual_button">Perpetual - Off</label>
+    <br>
+    <input type="checkbox" name="mass1_tail_button" class="mass1_tail_button" id="mass1_tail_button" name="mass1_tail_button">
+    <label id="mass1_tail_button">First Mass Tail</label>
+    <label id="diff_eq_solver">
+        <div id="diff_eq_solver_label">Differential Equation Solver</div>
+        <select>
+            <option>Runge-Kutta Method</option>
+            <option>Eulers Method</option>
+            <option>Adams-Bashfort Method</option>
+        </select>
+    </label>
+    <span class="sunPosition_label" id="sunPosition-label">Sun Position</span>
+    <input type="range" class="sunPosition" id="sun" min="-0.70" max="1" step="0.01">
+</div>
+<script src="double_pendulum.js"></script>

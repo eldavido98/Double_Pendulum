@@ -1,1 +1,1 @@
-# Interactive-Graphics
+# Double Pendulum

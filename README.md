@@ -15,8 +15,8 @@ You can interact with the simulation (e.g., adjust initial angles, colors, day/n
 
 
 ## What’s inside  
-- **double_pendulum.html** — the main HTML file launching the simulation.  
-- **double_pendulum.js** — JavaScript logic that computes the pendulum dynamics and handles rendering / animation.  
+- **double_pendulum.html** : the main HTML file launching the simulation.  
+- **double_pendulum.js** : JavaScript logic that computes the pendulum dynamics and handles rendering / animation.  
 
 
 ## What this demonstrates  
